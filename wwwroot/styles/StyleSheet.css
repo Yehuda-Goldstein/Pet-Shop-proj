@@ -1,0 +1,28 @@
+﻿* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color:brown;
+}
+
+h1 {
+    text-align: center;
+    color: red;
+}
+.navbar{
+    padding: 10px;
+    font-size:20px;
+}
+.navbar a{
+    text-decoration:none;
+    color:blueviolet;
+}
+    table, th, td{
+    border: 1px solid black; 
+}
+table {
+    border-radius: 10px;
+}

@@ -1,0 +1,49 @@
+﻿@model AspWebProj.Models.Animal ;
+
+@{
+    ViewBag.Title = "AddAnimalPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post" asp-action="AddingAnimal" asp-controller="Admin" enctype="multipart/form-data">
+    <div>
+        <label>AnimalName: </label>
+        <input asp-for="@Model.Name" type="text" />
+        <span asp-validation-for="@Model.Name"></span>
+    </div>
+
+    <div>
+        <label>Age: </label>
+        <input asp-for="@Model.Age" type="number" />
+        <span asp-validation-for="@Model.Age"></span>
+    </div>
+
+    <div>
+        <label>Picture: </label>
+        <input asp-for="@Model.PictureName" name="PictureName" type="file" />
+        <span asp-validation-for="@Model.PictureName"></span>
+    </div>
+    <div>
+        <label>Description: </label>
+        <input asp-for="@Model.Description" type="text" />
+        <span asp-validation-for="@Model.Description"></span>
+    </div>
+
+    <div>
+        <label>Category: </label>
+        <select asp-for="CategoryId">
+            @foreach (var category in ViewBag.Category)
+            {
+                if (@category.CategoryId == ViewBag.id)
+                {
+                    <option value="@category.CategoryId" selected>@category.Name</option>
+                }
+                else
+                {
+                    <option value="@category.CategoryId">@category.Name</option>
+                }
+            }
+        </select>
+    </div>
+    <button type="submit">Add Animal</button>
+</form>

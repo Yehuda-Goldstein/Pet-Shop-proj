@@ -1,0 +1,50 @@
+﻿@model AspWebProj.Models.Comment
+@{
+    ViewBag.Title = "ShowAnimalPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<table border="1">
+    <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Category</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>
+            <img style="height:100px;width:100px;" src="~/images/@ViewBag.Animal.PictureName" alt="Animal Picture" />
+        </td>
+        <td>
+            @ViewBag.Animal.Name
+        </td>
+        <td>
+            @ViewBag.Animal.Age
+        </td>
+        <td>
+            @ViewBag.Animal.Category.Name
+        </td>
+        <td>
+            @ViewBag.Animal.Description
+        </td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <th>Comments</th>
+    </tr>
+    @foreach (var comment in @ViewBag.Animal.Comments)
+    {
+        <tr>
+            <td>
+                @comment.CommentDescription
+            </td>
+        </tr>
+    }
+</table>
+<form asp-action="AddComment" asp-controller="Animal" method="post">
+    <input asp-for="AnimalId" value="@ViewBag.Animal.AnimalId" type="text" hidden="hidden" />
+    <input asp-for="CommentDescription" type="text" />
+    <span asp-validation-for="CommentDescription"></span>
+    <button type="submit">Add Comment</button>
+</form>

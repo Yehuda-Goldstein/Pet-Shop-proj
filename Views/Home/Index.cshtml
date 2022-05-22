@@ -1,0 +1,36 @@
+﻿@model IEnumerable<AspWebProj.Models.Animal>
+@{
+    ViewBag.Title = "Best pet shop";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <table>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Description</th>
+                <th>Num of comments</th>
+            </tr>
+        @foreach (var animal in Model)
+        {
+            <tr>
+                <td>
+                    <img style="height:100px;width:100px;" src="~/images/@animal.PictureName" alt="Animal Picture" />
+                </td>
+                <td>
+                    @animal.Name
+                </td>
+                <td>
+                    @animal.Age
+                </td>
+                <td>
+                    @animal.Description
+                </td>
+                <td>
+                    @animal.Comments.Count()
+                </td>
+            </tr>
+        }
+    </table>
+
+

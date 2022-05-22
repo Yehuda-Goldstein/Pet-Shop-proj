@@ -1,0 +1,41 @@
+﻿@model AspWebProj.Models.Animal ;
+
+@{
+    ViewBag.Title = "EditAnimalPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post" asp-action="EditAnimal" asp-controller="Admin" enctype="multipart/form-data">
+    <div>
+        <label>Name: </label>
+        <input asp-for="@Model.Name" type="text" value="@Model.Name" />
+        <span asp-validation-for="@Model.Name"></span>
+    </div>
+
+    <div>
+        <label>Age: </label>
+        <input asp-for="@Model.Age" type="number" value="@Model.Age" />
+        <span asp-validation-for="@Model.Age"></span>
+    </div>
+
+    <div>
+
+        <label>Description: </label>
+        <input asp-for="@Model.Description" type="text" value="@Model.Description" />
+        <span asp-validation-for="@Model.Description"></span>
+    </div>
+
+    <div>
+        <label>Picture: </label>
+        <input asp-for="@Model.PictureName" type="text" value="@Model.PictureName" />
+        <span asp-validation-for="@Model.PictureName"></span>
+    </div>
+
+    <div>
+        <label>New Picture:</label>
+        <input name="NewPicture" type="file" />
+        <input asp-for="@Model.AnimalId" value="@Model.AnimalId" hidden="hidden">
+        <input asp-for="@Model.CategoryId" value="@Model.CategoryId" hidden="hidden">
+    </div>
+    <button type="submit">Submit</button>
+</form>

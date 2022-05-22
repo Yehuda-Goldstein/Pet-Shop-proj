@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <script src="~/scripts/script.js"></script>
+    <script src="~/scripts/jquery.js"></script>
+    <script src="~/scripts/jquery.validate.min-1.17.0.js"></script>
+    <script src="~/scripts/jquery.validate.unobtrusive.min-3.2.10.js"></script>
+    <link href="~/styles/StyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+    <a class="navbar"  asp-action="Index" asp-controller="Home"> Home </a>
+    <a class="navbar"  asp-action="CatalogPage" asp-controller="Catalog"> Catalog</a>
+    <a class="navbar" asp-route-id="1" asp-action="AdminPage" asp-controller="Admin"> Administrator</a>
+    <h1> The best pet shop web </h1>
+    @RenderBody()
+</body>
+</html>

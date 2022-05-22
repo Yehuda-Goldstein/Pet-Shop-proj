@@ -1,0 +1,40 @@
+﻿@model IEnumerable<AspWebProj.Models.Category> ;
+@{
+    ViewBag.Title = "CatalogPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<select id="CategoryList" onchange="CategorySelected()">
+    @foreach (var category in Model)
+    {
+        if (@category.CategoryId == ViewBag.id)
+        {
+            <option value="@category.CategoryId" selected>@category.Name</option>
+        }
+        else
+        {
+            <option value="@category.CategoryId">@category.Name</option>
+        }
+    }
+</select>
+<table border="1">
+    <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Find out more and comment</th>
+    </tr>
+    @foreach (var animal in @ViewBag.animals)
+    {
+        <tr>
+            <td>
+                <img style="height:100px;width:100px;" src="~/images/@animal.PictureName" alt="Animal Picture" />
+            </td>
+            <td>
+                @animal.Name
+            </td>
+            <td>
+                <a asp-action="ShowAnimalPage" asp-controller="Animal" asp-route-id="@animal.AnimalId">detail</a>
+            </td>
+        </tr>
+    }
+</table>
